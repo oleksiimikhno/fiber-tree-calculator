@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="calculator"class="container row">
+	<!-- <div>
+		<label for="fibel-lenght">Fiber Length (m)<input type="number" name="fibel-lenght"></label>
+		<label for=""><input type="text"></label>
+		<label for=""><input type="text"></label>
+		<label for=""><input type="text"></label>
+		<label for=""><input type="text"></label>
+	</div> -->
+	<!-- Incoming signal -->
+	<label for="in-signal" class="row">Incoming signal<input type="number" id="in-signal" name="in-signal" value="0"><button>+</button></label>
+	<!-- first split -->
+	<div class="split" data-id="0" data-type="FBT" data-fiber="5_95">
+		<select class="select-type">
+			<option value="FBT">FBT</option>
+			<option value="PLC">PLC</option>
+		</select>
+		<select class="select-fiber">
+            <option value="5_95">5/95</option>
+            <option value="10_90">10/90</option>
+            <option value="15_85">15/85</option>
+            <option value="20_80">20/80</option>
+            <option value="25_75">25/75</option>
+            <option value="30_70">30/70</option>
+            <option value="35_65">35/65</option>
+            <option value="40_60">40/60</option>
+            <option value="45_55">45/55</option>
+            <option value="50_50">50/50</option>
+		</select>
+		<input class="in-split" name="in-signal" value="0">
+		<div class="out-split" class="column">
+			<div class="row" data-id="0"><input class="out-signal" data-id="0" name="out-split" value="0"><button class="create-split">+</button></div>
+			<div class="row" data-id="0"><input class="out-signal" data-id="0" name="out-split" value="0"><button class="create-split">+</button></div>
+		</div>
+	</div>
+</div>
+<script src="javascript.js"></script>
+</body>
+</html>
