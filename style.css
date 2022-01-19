@@ -1,12 +1,8 @@
 body{
     /* max-width: 1440px; */
-    width: 90%;
+    width: 95%;
     padding: 0 1rem;
     margin: 0 auto;
-    /* background-color: rgba(252, 250, 250, 0.897); */
-}
-main{
-    /* background-color: #fff; */
 }
 .row{
     display: flex;
@@ -27,6 +23,7 @@ main{
     overflow-x: scroll;
 }
 #in-signal{
+    border: 3px solid grey;
     margin-left: 5px;
 }
 .split{
@@ -68,6 +65,11 @@ label > input, label > button{
 
 input{
     max-width: 40px;
+    text-align: center;
+}
+input:disabled{
+    color: black;
+    border: 1px solid grey;
 }
 
 
@@ -96,9 +98,6 @@ input{
 
 
 
-/* table:first{
-    margin-right: 20px;
-} */
 table, td{
     border-collapse: collapse;
     border: 1px solid black;

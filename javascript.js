@@ -82,7 +82,7 @@ let changeSplitData = (option, selectedType) => {
         
         if (type === 'PLC' && getLenghtOutFibers > rows.length) {
             for (let i = rows.length; i < getLenghtOutFibers; i++) {
-                outSplit.insertAdjacentHTML('beforeend', `<div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0"><button class="create-split">+</button></div>`);
+                outSplit.insertAdjacentHTML('beforeend', `<div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0" disabled><button class="create-split">+</button></div>`);
             }
         } else {
             cleanOutRowsSplit(rows, rows.length, getLenghtOutFibers)
@@ -178,10 +178,10 @@ let createSplit = (id) => {
             <option value="45_55">45/55</option>
             <option value="50_50">50/50</option>
         </select>
-        <input class="in-split" name="in-signal" value="0">
+        <input class="in-split" name="in-signal" value="0" disabled>
         <div class="column out-split">
-            <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0"><button class="create-split">+</button></div>
-            <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0"><button class="create-split">+</button></div>
+            <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0" disabled><button class="create-split">+</button></div>
+            <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0" disabled><button class="create-split">+</button></div>
         </div>
     </div>`;
 };
