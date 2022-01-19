@@ -82,13 +82,19 @@ input:disabled{
     border-bottom-right-radius: 5px;
 } */
 
-.create-split{
-    background-color: #3dd83871;
+.btn-split{
+    min-width: 25px;
+    border: 1px solid grey;
     color: black;
     font-weight: 700;
     font-size: large;
-    border: 1px solid grey;
     cursor: pointer;
+}
+.create-split{
+    background-color: #3dd83871;
+}
+.remove-split{
+    background-color: #ff463998;
 }
 .create-split:disabled{
     cursor: not-allowed;

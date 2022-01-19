@@ -82,7 +82,7 @@ let changeSplitData = (option, selectedType) => {
         
         if (type === 'PLC' && getLenghtOutFibers > rows.length) {
             for (let i = rows.length; i < getLenghtOutFibers; i++) {
-                outSplit.insertAdjacentHTML('beforeend', `<div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0" disabled><button class="create-split">+</button></div>`);
+                outSplit.insertAdjacentHTML('beforeend', `<div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0" disabled><button class="btn-split create-split">+</button></div>`);
             }
         } else {
             cleanOutRowsSplit(rows, rows.length, getLenghtOutFibers)
@@ -151,12 +151,29 @@ let calcSignal = (inSignal) => {
 let idSplit = 1;
 calcContainer.addEventListener('click', (event) => {
     const target = event.target;
-
+    
     if (target.matches('.create-split')) {
-      let addSplit = createSplit(idSplit++);
-      target.setAttribute("disabled", "disabled");
-      target.insertAdjacentHTML('afterend', addSplit);
-    };
+        let addSplit = createSplit(idSplit++);
+        target.insertAdjacentHTML('afterend', addSplit);
+
+        target.textContent = '-';
+        target.classList.replace('create-split','remove-split');
+    } else if(target.matches('.remove-split')) {
+        let removeBtn = target;
+        let hasChainSplitter = removeBtn.nextElementSibling.querySelector('.remove-split');
+
+        if (hasChainSplitter) {
+            (confirm('You want remove chain splitter?')) ? removeChainSplitter() : false ;
+        } else {
+            removeChainSplitter();
+        }
+
+        function removeChainSplitter() {
+            removeBtn.nextElementSibling.remove();
+            removeBtn.textContent = '+';
+            removeBtn.classList.replace('remove-split','create-split');
+        }
+    }
 });
 
 let createSplit = (id) => {
@@ -180,8 +197,8 @@ let createSplit = (id) => {
         </select>
         <input class="in-split" name="in-signal" value="0" disabled>
         <div class="column out-split">
-            <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0" disabled><button class="create-split">+</button></div>
-            <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0" disabled><button class="create-split">+</button></div>
+            <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0" disabled><button class="btn-split create-split">+</button></div>
+            <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0" disabled><button class="btn-split create-split">+</button></div>
         </div>
     </div>`;
 };
