@@ -4,45 +4,94 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Fiber Thee Calculator</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="calculator"class="container row">
-	<!-- <div>
-		<label for="fibel-lenght">Fiber Length (m)<input type="number" name="fibel-lenght"></label>
-		<label for=""><input type="text"></label>
-		<label for=""><input type="text"></label>
-		<label for=""><input type="text"></label>
-		<label for=""><input type="text"></label>
-	</div> -->
-	<!-- Incoming signal -->
-	<label for="in-signal" class="row">Incoming signal<input type="number" id="in-signal" name="in-signal" value="0"><button>+</button></label>
-	<!-- first split -->
-	<div class="split" data-id="0" data-type="FBT" data-fiber="5_95">
-		<select class="select-type">
-			<option value="FBT">FBT</option>
-			<option value="PLC">PLC</option>
-		</select>
-		<select class="select-fiber">
-            <option value="5_95">5/95</option>
-            <option value="10_90">10/90</option>
-            <option value="15_85">15/85</option>
-            <option value="20_80">20/80</option>
-            <option value="25_75">25/75</option>
-            <option value="30_70">30/70</option>
-            <option value="35_65">35/65</option>
-            <option value="40_60">40/60</option>
-            <option value="45_55">45/55</option>
-            <option value="50_50">50/50</option>
-		</select>
-		<input class="in-split" name="in-signal" value="0">
-		<div class="out-split" class="column">
-			<div class="row" data-id="0"><input class="out-signal" data-id="0" name="out-split" value="0"><button class="create-split">+</button></div>
-			<div class="row" data-id="0"><input class="out-signal" data-id="0" name="out-split" value="0"><button class="create-split">+</button></div>
+<main class="grid">
+	<div id="calculator" class="container row">
+		<!-- <div>
+			<label for="fibel-lenght">Fiber Length (m)<input type="number" name="fibel-lenght"></label>
+			<label for=""><input type="text"></label>
+			<label for=""><input type="text"></label>
+			<label for=""><input type="text"></label>
+			<label for=""><input type="text"></label>
+		</div> -->
+		<!-- Incoming signal -->
+		<label for="in-signal" class="row">Incoming signal<input id="in-signal" name="in-signal" value="0"></label>
+		<!-- first split -->
+		<div class="split" data-id="0" data-type="FBT" data-fiber="5_95">
+			<select class="select-type">
+				<option value="FBT">FBT</option>
+				<option value="PLC">PLC</option>
+			</select>
+			<select class="select-fiber">
+				<option value="5_95">5/95</option>
+				<option value="10_90">10/90</option>
+				<option value="15_85">15/85</option>
+				<option value="20_80">20/80</option>
+				<option value="25_75">25/75</option>
+				<option value="30_70">30/70</option>
+				<option value="35_65">35/65</option>
+				<option value="40_60">40/60</option>
+				<option value="45_55">45/55</option>
+				<option value="50_50">50/50</option>
+			</select>
+			<input class="in-split" name="in-signal" value="0">
+			<div class="column out-split">
+				<div class="row" data-id="0"><input class="out-signal" data-id="0" name="out-split" value="0"><button class="create-split">+</button></div>
+				<div class="row" data-id="0"><input class="out-signal" data-id="0" name="out-split" value="0"><button class="create-split">+</button></div>
+			</div>
 		</div>
 	</div>
-</div>
+	<div class="container row center">
+		<table>
+			<thead>
+				<tr>
+					<th colspan="3">FBT attenuation dB</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>FBT 5/95</td><td>13.7</td><td>0.32</td></tr>
+				<tr><td>FBT 10/90</td><td>10.08</td><td>0.49</td></tr>
+				<tr><td>FBT 15/85</td><td>8.16</td><td>0.76</td></tr>
+				<tr><td>FBT 20/80</td><td>7.11</td><td>1.06</td></tr>
+				<tr><td>FBT 25/75</td><td>6.29</td><td>1.42</td></tr>
+				<tr><td>FBT 30/70</td><td>5.39</td><td>1.56</td></tr>
+				<tr><td>FBT 35/65</td><td>4.56</td><td>1.93</td></tr>
+				<tr><td>FBT 40/60</td><td>4.01</td><td>2.34</td></tr>
+				<tr><td>FBT 45/55</td><td>3.73</td><td>2.71</td></tr>
+				<tr><td>FBT 50/50</td><td>3.17</td><td>3.19</td></tr>
+			</tbody>
+		</table>
+		<table><thead>
+			<tr>
+				<th colspan="2">PLC attenuation dB</th>
+			</tr>
+			<tbody>
+				<tr><td>PLC 1x2</td><td>4.3</td></tr>
+				<tr><td>PLC 1x4</td><td>7.4</td></tr>
+				<tr><td>PLC 1x8</td><td>10.7</td></tr>
+				<tr><td>PLC 1x16</td><td>13.9</td></tr>
+				<tr><td>PLC 1x32</td><td>17.2</td></tr>
+				<tr><td>PLC 1x64</td><td>21.5</td></tr>
+			</tbody>
+		</thead></table>
+	</div>
+</main>
+<script>
+const target = document.querySelector('#calculator')
+
+target.addEventListener('wheel', event => {
+  const toLeft  = event.deltaY < 0 && target.scrollLeft > 0
+  const toRight = event.deltaY > 0 && target.scrollLeft < target.scrollWidth - target.clientWidth
+
+  if (toLeft || toRight) {
+    event.preventDefault()
+    target.scrollLeft += event.deltaY
+  }
+})
+</script>
 <script src="javascript.js"></script>
 </body>
 </html>

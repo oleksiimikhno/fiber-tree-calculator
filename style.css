@@ -1,10 +1,13 @@
 body{
-    max-width: 1440px;
-    width: 100%;
-    padding: 1rem 1rem;
+    /* max-width: 1440px; */
+    width: 90%;
+    padding: 0 1rem;
     margin: 0 auto;
+    /* background-color: rgba(252, 250, 250, 0.897); */
 }
-
+main{
+    /* background-color: #fff; */
+}
 .row{
     display: flex;
     flex-direction: row;
@@ -14,13 +17,23 @@ body{
     flex-direction: column;
     max-width: 100px;
 }
+.center{
+    justify-content: center;
+    gap: 20px;
+}
 
+#calculator{
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+#in-signal{
+    margin-left: 5px;
+}
 .split{
     position: relative;
     display: flex;
     flex-direction: row;
     padding: 1rem;
-   
 }
 
 .split:before{
@@ -56,6 +69,17 @@ label > input, label > button{
 input{
     max-width: 40px;
 }
+
+
+
+/* .out-split .row:first-child > .create-split{
+    border-top-right-radius: 5px;
+}
+
+.out-split .row:last-child > .create-split{
+    border-bottom-right-radius: 5px;
+} */
+
 .create-split{
     background-color: #3dd83871;
     color: black;
@@ -68,4 +92,24 @@ input{
     cursor: not-allowed;
     color: grey;
     background-color: #eeeaea;
+}
+
+
+
+/* table:first{
+    margin-right: 20px;
+} */
+table, td{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+thead{
+    background-color: #999;
+}
+th,td{
+    padding: 5px;
+    text-align: center;
+}
+tr{
+   font-weight: 700;
 }

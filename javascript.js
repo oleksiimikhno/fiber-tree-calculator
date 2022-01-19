@@ -179,7 +179,7 @@ let createSplit = (id) => {
             <option value="50_50">50/50</option>
         </select>
         <input class="in-split" name="in-signal" value="0">
-        <div class="out-split" class="column">
+        <div class="column out-split">
             <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0"><button class="create-split">+</button></div>
             <div class="row" data-id="${id}"><input class="out-signal" data-id="${id}" name="out-split" value="0"><button class="create-split">+</button></div>
         </div>
